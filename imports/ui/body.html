@@ -1,0 +1,19 @@
+<body>
+  <div class="container">
+    <header>
+      <h1>Plant List ({{incompleteCount}})</h1>
+
+      {{> loginButtons}}
+
+      <form class="new-task">
+        <input type="text" name="text" placeholder="Type to add new plant" />
+      </form>
+    </header>
+
+    <ul>
+      {{#each plant}}
+        {{> plant}}
+      {{/each}}
+    </ul>
+  </div>
+</body>

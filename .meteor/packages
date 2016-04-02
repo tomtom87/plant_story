@@ -20,9 +20,13 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 autopublish             # Publish all data to the clients (for prototyping)
 insecure                # Allow all DB writes from clients (for prototyping)
 
-driftyco:ionic
+#driftyco:ionic
+#jonmc12:ionic-material
+twbs:bootstrap
 reactive-dict
 aldeed:collection2
 aldeed:simple-schema
 accounts-ui
 accounts-password
+useraccounts:bootstrap
+peppelg:bootstrap-3-modal

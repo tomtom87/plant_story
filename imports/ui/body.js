@@ -1,7 +1,7 @@
 import { Template } from 'meteor/templating';
 import { ReactiveDict } from 'meteor/reactive-dict';
 
-import { Tasks } from '../api/tasks.js';
+import { Plants } from '../api/plants.js';
 
 import './plant.js';
 import './body.html';
@@ -11,31 +11,34 @@ Template.body.onCreated(function bodyOnCreated() {
 });
 
 Template.body.helpers({
-  tasks() {
+  plants() {
     const instance = Template.instance();
     if (instance.state.get('hideCompleted')) {
-      // If hide completed is checked, filter tasks
-      return Tasks.find({ checked: { $ne: true } }, { sort: { createdAt: -1 } });
+      // If hide completed is checked, filter Plants
+      return Plants.find({ checked: { $ne: true } }, { sort: { createdAt: -1 } });
     }
-    // Otherwise, return all of the tasks
-    return Tasks.find({}, { sort: { createdAt: -1 } });
+    // Otherwise, return all of the Plants
+    return Plants.find({}, { sort: { createdAt: -1 } });
   },
   incompleteCount() {
-    return Tasks.find({ checked: { $ne: true } }).count();
+    return Plants.find({ checked: { $ne: true } }).count();
   },
 });
 
 Template.body.events({
-  'submit .new-task'(event) {
+  'submit .new-plant'(event) {
     // Prevent default browser form submit
     event.preventDefault();
+
+    // Open modal for more information
+    Modal.show('newPlant');
 
     // Get value from form element
     const target = event.target;
     const text = target.text.value;
 
     // Insert a task into the collection
-    Tasks.insert({
+    Plants.insert({
       text,
       createdAt: new Date(), // current time
     });

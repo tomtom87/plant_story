@@ -5,13 +5,14 @@
 
       {{> loginButtons}}
 
-      <form class="new-task">
+      <form class="new-plant">
         <input type="text" name="text" placeholder="Type to add new plant" />
       </form>
+
     </header>
 
     <ul>
-      {{#each plant}}
+      {{#each plants}}
         {{> plant}}
       {{/each}}
     </ul>

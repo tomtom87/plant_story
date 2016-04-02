@@ -7,3 +7,27 @@
     <span class="text">{{text}}</span>
   </li>
 </template>
+
+<template name="newPlant">
+    <div class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h4 class="modal-title">Add a new plant</h4>
+                </div>
+
+                <div class="modal-body">
+                    <input type="text" placeholder="Plant name" name="plant_name" />
+                    <input type="text" placeholder="Strain" />
+                    <input type="text" placeholder="No" />
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</template>
